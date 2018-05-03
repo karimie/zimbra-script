@@ -9,6 +9,7 @@ echo "Searching and saving for affected users.."
 AFUSR=`wc -l /tmp/affectedusers.txt|awk '{print $1}'`
 echo "Total of $AFUSR are affected.."
 
+#Search SPAM email from the list of affected users
 SRCF=/tmp/affectedusers.txt
 while IFS= read line
 do
@@ -30,5 +31,6 @@ done < "$SRCF"
 
 echo "Process complete..."
 
+#Clearing affected user list
 echo "Clearing current session data.."
 echo "" > /tmp/affectedusers.txt
